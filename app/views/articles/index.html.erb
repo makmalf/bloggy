@@ -1,0 +1,12 @@
+<h1>Recent Update</h1>
+<ul>
+<% @articles.each do |item| %>
+<li class="hentry">
+	<%= link_to item.title, article_path(item) %> 
+	<span class="edit"><%= link_to 'Edit', edit_article_path(item) %></span>
+	<span class="edit"><%= link_to 'Delete', article_path(item), method: :delete, data: {confirm: 'Are you sure?'} %></span>
+</li>
+<% end %>
+</ul>
+
+<%= link_to 'New Item', new_article_path() %>
